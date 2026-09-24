@@ -1,0 +1,67 @@
+/* site.css — the little styling the page has. Everything else is the browser's default. */
+
+/* 19 px type on a 28 px line, black on white. */
+body { font-family: "ABC Areal", sans-serif; font-size: 19px; line-height: 28px; color: #000; background: #fff; }
+
+/* The opening lines sit one under another, no gaps. */
+p { margin: 0; }
+
+/* A paragraph that appears after a click gets a blank line above and below it. */
+p[data-ob] { margin: 28px 0; margin: 1lh 0; }
+#nothing, #vibe { margin-top: 28px; margin-top: 1lh; }
+
+/* Links: the colour of the text, with a 1 px black underline sitting a little below the baseline. */
+a { color: inherit; text-decoration: underline; text-decoration-color: #000; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+/* Links that really leave the page (Telegram, email) are in italics. Doors, the words that unfold the text, are not. */
+a:not([data-o]) { font-style: italic; }
+
+/* A paragraph that starts with a footnote mark (¹ ² ³) is a footnote: small, light grey, letters slightly spaced. */
+.footnote { font-size: 13px; line-height: 18px; color: #a3a3a3; letter-spacing: 0.03em; }
+
+img, video, iframe { max-width: 100%; }
+video { height: auto; }
+
+/* Photos sit small in the line, right where their word is: exactly one line tall and aligned to the top
+   of the line, so nothing moves when one appears. Tap one and it grows, with the text flowing around it,
+   all the way down: its height is snapped to whole lines (story.js does that), so there is no gap under
+   it. Tap it again and it goes back. */
+#story img { height: 28px; height: 1lh; width: auto; vertical-align: top; margin: 0 0.15em; cursor: zoom-in; touch-action: manipulation; }
+/* 7px at the side: the same as the gap between the photo and the letters above and below it. */
+#story img.big { float: left; width: 50%; height: auto; margin: 0 7px 0 0; object-fit: cover; cursor: zoom-out; }
+
+/* On a phone the text simply starts at the top, with a little room at the sides. */
+@media (max-width: 767px) {
+  body { margin: 0; padding: 16px; }
+}
+
+/* Tablet: the same idea as on a desktop, on a grid of quarters. The text starts on the first vertical line
+   and the first horizontal one, and never comes closer than 32 px to the right edge. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  body { margin: 25vh 32px 25vh 25%; max-width: 51ch; }
+}
+
+/* Desktop: imagine the screen cut into thirds. The text starts on the first vertical line and the first
+   horizontal one, and a line of text holds about 67 characters. */
+@media (min-width: 1024px) {
+  body { margin: 33.3333vh 32px 33.3333vh 33.3333%; max-width: 51ch; }   /* 51ch of ABC Areal is about 67 characters of text */
+}
+
+/* The grid itself, for checking: open index.html?grid. Thirds on a desktop, quarters on a tablet. */
+.guides { position: fixed; inset: 0; pointer-events: none; }
+.guides i { position: absolute; background: #b0b0b0; }
+.guides .v1, .guides .v2, .guides .v3 { top: 0; bottom: 0; width: 1px; }
+.guides .h1, .guides .h2, .guides .h3 { left: 0; right: 0; height: 1px; }
+.guides .v1 { left: 33.3333%; }
+.guides .v2 { left: 66.6667%; }
+.guides .h1 { top: 33.3333vh; }
+.guides .h2 { top: 66.6667vh; }
+.guides .v3, .guides .h3 { display: none; }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .guides .v1 { left: 25%; }
+  .guides .v2 { left: 50%; }
+  .guides .v3 { left: 75%; display: block; }
+  .guides .h1 { top: 25vh; }
+  .guides .h2 { top: 50vh; }
+  .guides .h3 { top: 75vh; display: block; }
+}

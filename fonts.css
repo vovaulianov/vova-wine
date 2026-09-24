@@ -1,0 +1,16 @@
+/* fonts.css — ABC Areal, used by the site and the editor.
+   The files in fonts/ are WOFF2 copies of the originals in fonts/source/, cut down to Latin, digits and
+   punctuation (the font has no Cyrillic, so there is nothing else to keep): about 45 KB instead of 190 KB.
+   There is no local() on purpose: every computer, yours too, sees exactly the files a visitor gets. */
+@font-face { font-family: "ABC Areal"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("fonts/ABCAreal-Regular.woff2") format("woff2"); }
+@font-face { font-family: "ABC Areal"; font-weight: 400; font-style: italic; font-display: swap;
+  src: url("fonts/ABCAreal-RegularItalic.woff2") format("woff2"); }
+@font-face { font-family: "ABC Areal"; font-weight: 500; font-style: normal; font-display: swap;
+  src: url("fonts/ABCAreal-Medium.woff2") format("woff2"); }
+@font-face { font-family: "ABC Areal"; font-weight: 500; font-style: italic; font-display: swap;
+  src: url("fonts/ABCAreal-MediumItalic.woff2") format("woff2"); }
+@font-face { font-family: "ABC Areal"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("fonts/ABCAreal-Bold.woff2") format("woff2"); }
+@font-face { font-family: "ABC Areal"; font-weight: 700; font-style: italic; font-display: swap;
+  src: url("fonts/ABCAreal-BoldItalic.woff2") format("woff2"); }
